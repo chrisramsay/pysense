@@ -1,6 +1,8 @@
+# -*- coding: utf-8 -*-
 """
 Sets up a 'java' style enum
 """
+from __future__ import unicode_literals, print_function
 
 
 class Enum(set):

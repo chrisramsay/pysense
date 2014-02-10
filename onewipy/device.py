@@ -1,49 +1,16 @@
+# -*- coding: utf-8 -*-
 """
 Initiates and builds a device, holding its address, state and sensor type.
 """
+from __future__ import unicode_literals, print_function
 
+import device.device_factory as dv
+from device.devices import ir_thermo as irt
 
-class Device(object):
+classes = {"irt": irt.IRThermo, "bar": irt.IRThermo}
 
-    def __init__(self, device_conf):
-        """
-        """
-        self._address = device_conf['address']
-        self._state = device_conf['state']
-        self._type = device_conf['type']
+dv.DeviceFactory(classes['irt']()).address()
+dv.DeviceFactory(classes['irt']()).reading()
+dv.DeviceFactory(classes['irt']()).state()
+dv.DeviceFactory(classes['irt']()).type()
 
-    @property
-    def address(self):
-        return self._address
-
-    @address.setter
-    def address(self, value):
-        self._address = value
-
-    @address.deleter
-    def address(self):
-        del self._address
-
-    @property
-    def state(self):
-        return self._state
-
-    @state.setter
-    def state(self, value):
-        self._state = value
-
-    @state.deleter
-    def state(self):
-        del self._state
-
-    @property
-    def type(self):
-        return self._type
-
-    @type.setter
-    def type(self, value):
-        self._type = value
-
-    @type.deleter
-    def type(self):
-        del self._type
