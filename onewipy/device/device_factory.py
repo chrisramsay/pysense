@@ -22,8 +22,3 @@ class DeviceFactory:
 
     def type(self):
         self.factory.type()
-
-#DeviceFactory(devices.ir_thermo.IRThermo()).address()
-#DeviceFactory(devices.ir_thermo.IRThermo()).reading()
-#DeviceFactory(devices.ir_thermo.IRThermo()).state()
-#DeviceFactory(devices.ir_thermo.IRThermo()).type()
