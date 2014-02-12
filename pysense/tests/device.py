@@ -5,8 +5,8 @@
 from __future__ import unicode_literals, print_function
 import unittest
 
-from onewipy.enum import *
-import onewipy.device
+from pysense.enum import *
+import pysense.device
 
 
 class DevicesTestCase(unittest.TestCase):
@@ -20,7 +20,7 @@ class DevicesTestCase(unittest.TestCase):
             'state': SENS_STATES.YES,
             'type': SENS_TYPES.TempContact,
         }
-        self.dev = onewipy.device.Device(device_conf)
+        self.dev = pysense.device.Device(device_conf)
 
     def test_values(self):
         """
@@ -28,7 +28,7 @@ class DevicesTestCase(unittest.TestCase):
         """
         self.assertEqual(self.dev.address, '28-000004bfccc8')
         self.assertEqual(self.dev.state, 'YES')
-        self.assertEqual(self.dev.type, onewipy.enum.SENS_TYPES.TempContact)
+        self.assertEqual(self.dev.type, pysense.enum.SENS_TYPES.TempContact)
 
 if __name__ == '__main__':
     unittest.main()

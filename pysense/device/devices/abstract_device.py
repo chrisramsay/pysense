@@ -3,10 +3,11 @@
 
 """
 from __future__ import unicode_literals, print_function
-
+from abc import ABCMeta, abstractmethod, abstractproperty
 
 # The abstract device:
 class AbstractDevice:
+    __metaclass__ = ABCMeta
 
     def __init__(self, device_config):
         self._address = device_config['address']
@@ -14,18 +15,18 @@ class AbstractDevice:
         self._state = device_config['state']
         self._type = device_config['type']
 
-    @property
+    @abstractproperty
     def address(self):
-        return self._address
+        pass
 
-    @property
+    @abstractproperty
     def reading(self):
         pass
 
-    @property
+    @abstractproperty
     def state(self):
         pass
 
-    @property
+    @abstractproperty
     def type(self):
         pass

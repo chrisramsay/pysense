@@ -17,7 +17,7 @@ device_conf_1 = {
     'type': u'?',
 }
 
-device_conf_2= {
+device_conf_2 = {
     'address': '28-000004d017ba',
     'reading': u'11.937˚C',
     'state': 'YES',
@@ -26,15 +26,18 @@ device_conf_2= {
 
 my_irt = classes['irt'](device_conf_1)
 
-dv.DeviceFactory(my_irt).address()
-dv.DeviceFactory(my_irt).reading()
-dv.DeviceFactory(my_irt).state()
-dv.DeviceFactory(my_irt).type()
+print(my_irt)
+print(dv.DeviceFactory(my_irt))
 
-my_ctt = classes['ctt'](device_conf_2)
+#dv.DeviceFactory(my_irt).address()
+#dv.DeviceFactory(my_irt).reading()
+#dv.DeviceFactory(my_irt).state()
+#dv.DeviceFactory(my_irt).type()
 
-dv.DeviceFactory(my_ctt).address()
-dv.DeviceFactory(my_ctt).reading()
-dv.DeviceFactory(my_ctt).state()
-dv.DeviceFactory(my_ctt).type()
+#my_ctt = classes['ctt'](device_conf_2)
+
+#dv.DeviceFactory(my_ctt).address()
+#dv.DeviceFactory(my_ctt).reading()
+#dv.DeviceFactory(my_ctt).state()
+#dv.DeviceFactory(my_ctt).type()
 
