@@ -1,4 +1,4 @@
-onewipy
+pysense
 =======
 
-One wire sensor control
+Python based sensor reading for I&#178;C devices
