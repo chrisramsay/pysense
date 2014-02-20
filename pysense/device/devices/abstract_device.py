@@ -5,8 +5,10 @@
 from __future__ import unicode_literals, print_function
 from abc import ABCMeta, abstractmethod, abstractproperty
 
+
 # The abstract device:
 class AbstractDevice:
+
     __metaclass__ = ABCMeta
 
     def __init__(self, device_config):
@@ -29,4 +31,8 @@ class AbstractDevice:
 
     @abstractproperty
     def type(self):
+        pass
+
+    @abstractmethod
+    def parse(self):
         pass

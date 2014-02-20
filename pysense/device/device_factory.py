@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-
+Passes through commands to the created device.
 """
 from __future__ import unicode_literals, print_function
-# import devices.ir_thermo
 
 
 class DeviceFactory:
@@ -22,3 +21,6 @@ class DeviceFactory:
 
     def type(self):
         self.factory.type()
+
+    def parse(self):
+        self.factory.parse()

@@ -22,22 +22,20 @@ device_conf_2 = {
     'reading': u'11.937˚C',
     'state': 'YES',
     'type': u'?',
+    'device_directory': '/sys/bus/w1/devices/',
 }
 
 my_irt = classes['irt'](device_conf_1)
+my_ctt = classes['ctt'](device_conf_2)
 
-print(my_irt)
-print(dv.DeviceFactory(my_irt))
+dv.DeviceFactory(my_irt).address()
+dv.DeviceFactory(my_irt).reading()
+dv.DeviceFactory(my_irt).state()
+dv.DeviceFactory(my_irt).type()
+dv.DeviceFactory(my_irt).parse()
 
-#dv.DeviceFactory(my_irt).address()
-#dv.DeviceFactory(my_irt).reading()
-#dv.DeviceFactory(my_irt).state()
-#dv.DeviceFactory(my_irt).type()
-
-#my_ctt = classes['ctt'](device_conf_2)
-
-#dv.DeviceFactory(my_ctt).address()
-#dv.DeviceFactory(my_ctt).reading()
-#dv.DeviceFactory(my_ctt).state()
-#dv.DeviceFactory(my_ctt).type()
-
+dv.DeviceFactory(my_ctt).address()
+dv.DeviceFactory(my_ctt).reading()
+dv.DeviceFactory(my_ctt).state()
+dv.DeviceFactory(my_ctt).type()
+dv.DeviceFactory(my_ctt).parse()

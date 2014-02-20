@@ -21,3 +21,6 @@ class IRThermo(abstract_device.AbstractDevice):
 
     def type(self):
         print('Getting type from {0}: {1}'.format(self.__class__, self._type))
+
+    def parse(self):
+        print('parse-')

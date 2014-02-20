@@ -15,3 +15,4 @@ class Enum(set):
 
 SENS_TYPES = Enum(['TempContact', 'TempIR'])
 SENS_STATES = Enum(['YES'])
+SENS_CLASSES = Enum([['TempContact', 'ContactThermo'], ['TempIR', 'IRThermo']])
