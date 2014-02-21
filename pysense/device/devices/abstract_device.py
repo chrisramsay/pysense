@@ -13,7 +13,6 @@ class AbstractDevice:
 
     def __init__(self, device_config):
         self._address = device_config['address']
-        self._type = device_config['type']
 
     @abstractproperty
     def address(self):

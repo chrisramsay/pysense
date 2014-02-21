@@ -1,10 +1,10 @@
 - config:
     address: 28-000004bfccc8
-    device_directory: /files/
+    device_directory: files/
   type: CCT
 - config:
     address: 28-000004d017ba
-    device_directory: /files/
+    device_directory: files/
   type: CCT
 - config:
     address: 28-000004ce67e3
