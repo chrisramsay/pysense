@@ -19,7 +19,7 @@ class ReaderTestCase(unittest.TestCase):
         device_conf = [{
             'type': 'CCT',
             'config': {
-                'address': '28-000004bfccc8', 'device_directory': u'{0}/files/'.format(os.getcwd()), 'type': u'?'
+                'address': '28-000004bfccc8', 'device_directory': u'{0}/files/'.format(os.path.abspath(__file__)[:-15]), 'type': u'?'
             },
         }, {
             'type': 'IRT',

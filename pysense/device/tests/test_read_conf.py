@@ -3,9 +3,10 @@
 
 """
 from __future__ import unicode_literals, print_function
+import os
 import unittest
+
 from yaml import load, dump
-import os, sys
 
 import pysense.device.reader
 from pysense.util.temperature import Temperature
@@ -16,9 +17,8 @@ class ReadConfTestCase(unittest.TestCase):
         """
         The set up - parsed YAML
         """
-        stream = open('{0}/files/config/test_two.yaml'.format(os.getcwd()))
+        stream = open('{0}/tests/files/config/test_two.yaml'.format(os.getcwd()))
         self._config = load(stream)
-        print(sys.path)
 
     def test_configs(self):
         test_conf = [
