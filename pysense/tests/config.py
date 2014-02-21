@@ -11,12 +11,12 @@ import os
 class ConfigTestCase(unittest.TestCase):
     def setUp(self):
         """
-        The set up
+        The set up - parsed YAML
         """
         self.device_conf = [{
             'type': 'CCT',
             'config': {
-                'address': '8-000004bfccc8', 'device_directory': u'/sys/bus/w1/devices/',
+                'address': '28-000004bfccc8', 'device_directory': u'/sys/bus/w1/devices/',
             },
         }, {
             'type': 'IRT',
@@ -24,9 +24,6 @@ class ConfigTestCase(unittest.TestCase):
                 'address': '28-000004ce67e3',
             },
         }, ]
-
-    def test_dump(self):
-        pass #print(dump(self.device_conf))
 
     def test_load(self):
         """

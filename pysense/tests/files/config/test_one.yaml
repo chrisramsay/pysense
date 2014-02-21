@@ -1,5 +1,5 @@
 - config:
-    address: 8-000004bfccc8
+    address: 28-000004bfccc8
     device_directory: /sys/bus/w1/devices/
   type: CCT
 - config:

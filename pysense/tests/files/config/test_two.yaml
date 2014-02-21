@@ -1,5 +1,9 @@
 - config:
-    address: 8-000004bfccc8
+    address: 28-000004bfccc8
+    device_directory: /files/
+  type: CCT
+- config:
+    address: 28-000004d017ba
     device_directory: /files/
   type: CCT
 - config:
