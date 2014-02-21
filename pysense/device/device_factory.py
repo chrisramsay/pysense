@@ -11,16 +11,16 @@ class DeviceFactory:
         self.factory = factory
 
     def address(self):
-        self.factory.address()
+        return self.factory.address()
 
     def reading(self):
-        self.factory.reading()
+        return self.factory.reading()
 
     def state(self):
-        self.factory.state()
+        return self.factory.state()
 
     def type(self):
-        self.factory.type()
+        return self.factory.type()
 
     def parse(self):
-        self.factory.parse()
+        return self.factory.parse()

@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """
+Represents a concrete temperature value
 
+Borrowed from http://www.stuffaboutcode.com/2013/12/raspberry-pi-python-temp-sensor-ds18b20.html
 """
 from __future__ import unicode_literals, print_function
 
@@ -16,4 +18,4 @@ class Temperature():
 
     @property
     def Fahrenheit(self):
-        return self.C * 9.0 / 5.0 + 23.0
+        return self.Centigrade * 9.0 / 5.0 + 23.0

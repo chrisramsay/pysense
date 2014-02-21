@@ -11,16 +11,16 @@ import abstract_device
 class IRThermo(abstract_device.AbstractDevice):
 
     def address(self):
-        print('Getting address from {0}: {1}'.format(self.__class__, self._address))
+        return self._address
 
     def reading(self):
-        print('Getting reading from {0}: {1}'.format(self.__class__, self._reading))
+        return self._reading
 
     def state(self):
-        print('Getting state from {0}: {1}'.format(self.__class__, self._state))
+        return self._state
 
     def type(self):
-        print('Getting type from {0}: {1}'.format(self.__class__, self._type))
+        return self._type
 
     def parse(self):
-        print('parse-')
+        print('parsing {0}'.format(self._address))

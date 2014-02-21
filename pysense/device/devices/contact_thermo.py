@@ -23,33 +23,30 @@ from __future__ import unicode_literals, print_function
 import abstract_device
 from pysense.util.temperature import Temperature
 
+DS18B20_OUTPUT = '/w1_slave'
+
 
 class ContactThermo(abstract_device.AbstractDevice):
 
     def __init__(self, device_config):
         super(ContactThermo, self).__init__(device_config)
         self._device_directory = device_config['device_directory']
-        self.sensor_file = self._device_directory + self._address + '/w1_slave'
+        self.sensor_file = self._device_directory + self._address + DS18B20_OUTPUT
 
     def address(self):
-        print('Getting address from {0}: {1}, slightly differently'.format(self.__class__, self._address))
+        return self._address
 
     def reading(self):
-        self._reading = 12903
-        self._reading = Temperature(self._reading)
-        print('Getting reading from {0}: {1}, slightly differently'.format(self.__class__, self._reading.Centigrade))
+        return self._reading
 
     def state(self):
-        print('Getting state from {0}: {1}, slightly differently'.format(self.__class__, self._state))
+        return self._state
 
     def type(self):
-        print('Getting type from {0}: {1}, slightly differently'.format(self.__class__, self._type))
-
-    def get_loc(self):
-        print('Getting type from {0}: {1}, slightly differently'.format(self.__class__, self._device_directory))
+        return self._type
 
     def parse(self):
-        print(self.sensor_file)
+        print('Reading the file at: {0}'.format(self.sensor_file))
 
     def _read_file(self):
         sensor_file = open(self.sensor_file, "r")
