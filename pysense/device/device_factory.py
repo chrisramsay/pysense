@@ -22,5 +22,3 @@ class DeviceFactory:
     def type(self):
         return self.factory.type()
 
-    def parse(self):
-        return self.factory.parse()

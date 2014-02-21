@@ -31,6 +31,3 @@ class AbstractDevice:
     def type(self):
         pass
 
-    @abstractmethod
-    def parse(self):
-        pass

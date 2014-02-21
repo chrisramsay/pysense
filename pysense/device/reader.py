@@ -9,7 +9,7 @@ from devices import ir_thermo as irt
 from devices import contact_thermo as ctt
 
 
-DEVICE_CLASSES = {'IRT': irt.IRThermo, 'CCT': ctt.ContactThermo}
+DEVICE_CLASSES = dict(IRT=irt.IRThermo, CCT=ctt.ContactThermo)
 
 
 class Reader(object):
@@ -18,10 +18,14 @@ class Reader(object):
         """
         For each device, set up the class and then do device specific stuff
         """
-        self.devs = []
+        self.device_list = []
         for dev in device_config:
             my_irt = DEVICE_CLASSES[dev['type']](dev['config'])
-            self.devs.append(dv.DeviceFactory(my_irt))
+            self.device_list.append(dv.DeviceFactory(my_irt))
 
-    def get_devs(self):
-        return self.devs
+    def get_device_list(self):
+        return self.device_list
+
+    def devices(self):
+        for dev in self.device_list:
+            yield dev

@@ -4,9 +4,11 @@
 """
 from __future__ import unicode_literals, print_function
 import unittest
+import os
 
 import pysense.device.reader
 import pysense.device.device_factory
+from pysense.util.temperature import Temperature
 
 
 class DevicesTestCase(unittest.TestCase):
@@ -17,7 +19,7 @@ class DevicesTestCase(unittest.TestCase):
         device_conf = [{
             'type': 'CCT',
             'config': {
-                'address': '28-000004d017ba', 'device_directory': u'tests/files/', 'type': u'?'
+                'address': '8-000004bfccc8', 'device_directory': u'{0}/files/'.format(os.getcwd()), 'type': u'?'
             },
         }, {
             'type': 'IRT',
@@ -31,19 +33,40 @@ class DevicesTestCase(unittest.TestCase):
         # Check that r is an instance of Reader
         self.assertIsInstance(self.r, pysense.device.reader.Reader)
         # Check that first device is an instance of DeviceFactory
-        dev_one = self.r.devs[0]
+        dev_one = self.r.device_list[0]
         self.assertIsInstance(dev_one, pysense.device.device_factory.DeviceFactory)
         # Check that address is as set
-        self.assertEqual(dev_one.address(), '28-000004d017ba')
+        self.assertEqual(dev_one.address(), '8-000004bfccc8')
 
     def test_irt(self):
         # Check that r is an instance of Reader
         self.assertIsInstance(self.r, pysense.device.reader.Reader)
-        # Check that first device is an instance of DeviceFactory
-        dev_two = self.r.devs[1]
+        # Check that second device is an instance of DeviceFactory
+        dev_two = self.r.device_list[1]
         self.assertIsInstance(dev_two, pysense.device.device_factory.DeviceFactory)
         # Check that address is as set
         self.assertEqual(dev_two.address(), '28-000004ce67e3')
+
+    def test_generate(self):
+        device_gen = self.r.devices()
+        # Check that first device is an instance of DeviceFactory
+        self.assertIsInstance(device_gen.next(), pysense.device.device_factory.DeviceFactory)
+        # Check that second device is an instance of DeviceFactory
+        self.assertIsInstance(device_gen.next(), pysense.device.device_factory.DeviceFactory)
+        # Assert that we get to the end of the list
+        self.assertRaises(StopIteration, lambda: device_gen.next())
+
+    def test_cct_reading(self):
+        # Get the chosen device
+        dev_cct = self.r.device_list[0]
+        # Take a reading
+        reading = dev_cct.reading()
+        # Check that instance is Temperature
+        self.assertIsInstance(reading, Temperature)
+        # Assert that the temperature is measured at 15.062 Centigrade
+        self.assertEqual(reading.centigrade, 15.062)
+        # Assert that the temperature is measured at 50.112 Fahrenheit
+        self.assertEqual(reading.fahrenheit, 50.112)
 
 if __name__ == '__main__':
     unittest.main()

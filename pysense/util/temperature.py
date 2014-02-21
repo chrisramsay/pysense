@@ -13,9 +13,9 @@ class Temperature():
         self.raw_data = raw_data
 
     @property
-    def Centigrade(self):
+    def centigrade(self):
         return float(self.raw_data) / 1000
 
     @property
-    def Fahrenheit(self):
-        return self.Centigrade * 9.0 / 5.0 + 23.0
+    def fahrenheit(self):
+        return round(self.centigrade * 9.0 / 5.0 + 23.0, 3)

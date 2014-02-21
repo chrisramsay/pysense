@@ -29,15 +29,19 @@ DS18B20_OUTPUT = '/w1_slave'
 class ContactThermo(abstract_device.AbstractDevice):
 
     def __init__(self, device_config):
+        """
+        This handles the guts of the operation - initiates the reading
+        """
         super(ContactThermo, self).__init__(device_config)
         self._device_directory = device_config['device_directory']
         self.sensor_file = self._device_directory + self._address + DS18B20_OUTPUT
+        self._reading = self.get_reading()
 
     def address(self):
         return self._address
 
     def reading(self):
-        return self._reading
+        return Temperature(self._reading)
 
     def state(self):
         return self._state
@@ -54,9 +58,10 @@ class ContactThermo(abstract_device.AbstractDevice):
         sensor_file.close()
         return lines
 
-    def _update_temp(self):
+    def get_reading(self):
         data = self._read_file()
         if data[0].strip()[-3:] == "YES":
             equals_pos = data[1].find("t=")
             if equals_pos != -1:
                 temp_data = data[1][equals_pos+2:]
+        return temp_data
