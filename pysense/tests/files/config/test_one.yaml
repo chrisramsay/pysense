@@ -1,0 +1,7 @@
+- config:
+    address: 8-000004bfccc8
+    device_directory: /sys/bus/w1/devices/
+  type: CCT
+- config:
+    address: 28-000004ce67e3
+  type: IRT
