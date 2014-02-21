@@ -17,7 +17,7 @@ class ReadConfTestCase(unittest.TestCase):
         """
         The set up - parsed YAML
         """
-        stream = open('{0}/tests/files/config/test_two.yaml'.format(os.getcwd()))
+        stream = open('{0}/files/config/test_two.yaml'.format(os.path.abspath(__file__)[:-18]))
         self._config = load(stream)
 
     def test_configs(self):
